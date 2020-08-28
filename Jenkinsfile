@@ -23,6 +23,7 @@ pipeline
                 //when {
                 //branch 'master'
                   //   }
+                 echo 'Build Docker automation'
                 steps {
                   script {
                     app = docker.build(DOCKER_IMAGE_NAME)
