@@ -27,7 +27,7 @@ pipeline
                   script {
                     app = docker.build(DOCKER_IMAGE_NAME)
                     app.inside {
-                        sh 'echo Hello, World!'
+                        sh 'echo docker build'
                                }
                          }
                       }
@@ -41,6 +41,7 @@ pipeline
                    script {
                      docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login_SG')
                          {
+                              sh 'echo docker push'
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
                           }
