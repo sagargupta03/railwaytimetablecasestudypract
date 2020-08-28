@@ -2,7 +2,7 @@
  
 node
 {
-  agent { label 'staging'}
+  //agent { label 'staging'}
   // possible options agent any, none , label , my slave name is staging	
   def app
 	
