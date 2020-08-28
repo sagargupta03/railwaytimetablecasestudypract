@@ -25,7 +25,7 @@ node
 
         stage('Push Image') {
         echo 'Pushing image to Docker Hub....'
-	echo 'SG-docker-hub is name of Docker credential...'
+	echo 'docker_hub_login_SG is name of Docker credential...'
 
         docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login_SG')
 	 {
