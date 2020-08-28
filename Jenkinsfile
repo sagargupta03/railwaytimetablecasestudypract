@@ -27,7 +27,8 @@ pipeline
                 steps {
                     echo 'Build Docker image'
                   script {
-                    app = docker.build(DOCKER_IMAGE_NAME)
+                   // app = docker.build(DOCKER_IMAGE_NAME)
+                      docker.build registry + ":$BUILD_NUMBER"
                     app.inside {
                         sh 'echo docker build'
                                }
