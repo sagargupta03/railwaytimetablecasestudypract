@@ -2,10 +2,10 @@
  
 node
 {
-	environment {
-    registry = "sagargupta03/railwaytt"
-    registryCredential = 'docker_hub_login_SG'
-            }
+//	environment {
+  //  registry = "sagargupta03/railwaytt"
+   // registryCredential = 'docker_hub_login_SG'
+     //       }
   //agent { label 'staging'}
   // possible options agent any, none , label , my slave name is staging	
   def app
