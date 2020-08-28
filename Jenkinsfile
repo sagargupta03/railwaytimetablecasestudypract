@@ -23,7 +23,7 @@ pipeline
            echo 'Pushing image to Docker Hub....demo'
             //        withCredentials([usernamePassword(credentialsId: 'docker_hub_login_SG', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) 
             //{
-               withCredentials([usernamePassword(credentialsId: 'docker_hub_login_SG', 'love8win' , sagargupta03)] 
+               withCredentials([usernamePassword(credentialsId: 'docker_hub_login_SG', 'love8win' , 'sagargupta03')] 
                         {
         //  withCredentials([usernamePassword(credentialsId: 'docker_hub_login_SG')]) {
         //   sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
