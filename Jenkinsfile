@@ -4,8 +4,10 @@ pipeline
         environment
             {
         //be sure to replace "ketanvj" with your own Docker Hub username
-                  DOCKER_IMAGE_NAME = "sagargupta03/railwaytt"
+                 // DOCKER_IMAGE_NAME = "sagargupta03/railwaytt"
                 //DOCKER_IMAGE_NAME = "ketanvj/railwaytt"
+                 registry = "sagargupta03/railwaytt"
+                registryCredential = 'docker_hub_login_SG'
             }
         stages
         {
