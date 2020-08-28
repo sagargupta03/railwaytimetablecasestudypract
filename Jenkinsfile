@@ -11,7 +11,7 @@ pipeline {
     stage('Docker Build') {
       steps {
         //sh "docker build -t sagargupt03/railwaytt:${env.BUILD_NUMBER} ."
-            sh "docker build -t sagargupt03/railwaytt"
+            sh "docker build -t sagargupt03/railwaytt ."
       }
     }
     stage('Docker Push') {
