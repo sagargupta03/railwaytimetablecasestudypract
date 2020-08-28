@@ -12,8 +12,8 @@ pipeline {
            echo 'Pushing image to Docker Hub....'
         withCredentials([usernamePassword(credentialsId: 'docker_hub_login_SG', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
         //  withCredentials([usernamePassword(credentialsId: 'docker_hub_login_SG')]) {
-          sh 'echo ${env.dockerHubUser}'
-          sh 'echo ${env.dockerHubPassword}'
+          sh "echo ${env.dockerHubUser}"
+          sh "echo ${env.dockerHubPassword}"
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
        sh "docker push sagargupt03/railwaytt:${env.BUILD_NUMBER}"
       
