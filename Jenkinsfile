@@ -4,7 +4,8 @@ pipeline
         environment
             {
         //be sure to replace "ketanvj" with your own Docker Hub username
-                  DOCKER_IMAGE_NAME = "ketanvj/railwaytt"
+                  DOCKER_IMAGE_NAME = "sagargupta03/railwaytt"
+                //DOCKER_IMAGE_NAME = "ketanvj/railwaytt"
             }
         stages
         {
