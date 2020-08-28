@@ -15,7 +15,7 @@ pipeline {
           sh "echo ${env.dockerHubUser}"
           sh "echo ${env.dockerHubPassword}"
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-       sh "docker push sagargupt03/railwaytt:${env.BUILD_NUMBER}"
+       sh "docker push sagargupta03/railwaytt:${env.BUILD_NUMBER}"
       
             }
           }
