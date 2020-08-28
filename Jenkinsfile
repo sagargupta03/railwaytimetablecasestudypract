@@ -1,42 +1,52 @@
-// Script //
- 
-node
+pipeline 
 {
-//	environment {
-  //  registry = "sagargupta03/railwaytt"
-   // registryCredential = 'docker_hub_login_SG'
-     //       }
-  //agent { label 'staging'}
-  // possible options agent any, none , label , my slave name is staging	
-  def app
-	
-        stage('Clone Repository') {
-
-	echo 'Cloning the repository to our workbook....'
-        checkout scm
+    agent any
+        environment
+            {
+        //be sure to replace "ketanvj" with your own Docker Hub username
+                  DOCKER_IMAGE_NAME = "sagargupta03/railwaytt"
+                //DOCKER_IMAGE_NAME = "ketanvj/railwaytt"
+            }
+        stages
+        {
+            stage('Build')
+            {
+              steps
+                {
+                echo 'Running build automation'
+                sh './gradlew build --no-daemon'
+                archiveArtifacts artifacts: 'dist/railwaytt.zip'
+                 }
+            }
+            stage('Build Docker Image')
+            {
+                //when {
+                //branch 'master'
+                  //   }
+                steps {
+                  script {
+                    app = docker.build(DOCKER_IMAGE_NAME)
+                    app.inside {
+                        sh 'echo docker build'
+                               }
+                         }
+                      }
+            }
+            stage('Push Docker Image')
+            {
+                 //when {
+                  //branch 'master'
+                    //  }
+                 steps {
+                   script {
+                     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login_SG')
+                         {
+                              sh 'echo docker push'
+                        app.push("${env.BUILD_NUMBER}")
+                        app.push("latest")
+                          }
+             }
         }
-
-	stage('Build Image') {
-	echo 'This builds the actual image....'
-	app = docker.build("sagargupta03/railwaytt")
-	}
-
-        stage('Test Image') {
-        app.inside{
-        echo 'Test passed....'
-                  }
-	}
-
-        stage('Push Image') {
-        echo 'Pushing image to Docker Hub....'
-	echo 'docker_hub_login_SG is name of Docker credential...'
-
-        docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login_SG')
-	 {
-        app.push("${env.BUILD_NUMBER}")
-        app.push("latest")
-	 }	
-	/*echo ${env.BUILD_NUMBER}*/
-
-	}
+      }
+   }
 }
