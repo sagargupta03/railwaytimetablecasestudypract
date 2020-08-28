@@ -38,49 +38,5 @@ pipeline {
                 }
             }
         }
-        stage('CanaryDeploy') {
-            when {
-                branch 'master'
-            }
-            environment { 
-                CANARY_REPLICAS = 1
-            }
-            steps {
-                kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig',
-                    configs: 'railwaytt-kube-canary.yml',
-                    enableConfigSubstitution: true
-                )
-            }
-        }
-        stage('DeployToProduction') {
-            when {
-                branch 'master'
-            }
-            environment { 
-                CANARY_REPLICAS = 0
-            }
-            steps {
-                input 'Deploy to Production?'
-                milestone(1)
-                kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig',
-                    configs: 'railwaytt-kube-canary.yml',
-                    enableConfigSubstitution: true
-                )
-                
-       /*           withKubeConfig([credentialsId: 'kubeconfig'
-                    ]) {
-                sh 'kubectl delete service railway-timetable-service-canary'
-                sh 'kubectl delete deployment railway-timetable-deployment-canary'
-    }*/
-                
-                kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig',
-                    configs: 'railwaytt-kube.yml',
-                    enableConfigSubstitution: true
-                )
-            }
-        }
-    }
+     }
 }
