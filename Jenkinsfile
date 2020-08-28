@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Docker Build') {
       steps {
-        sh "docker build -t sagargupt03/railwaytt:${env.BUILD_NUMBER} ."
+        sh "docker build -t sagargupta03/railwaytt:${env.BUILD_NUMBER} ."
       }
     }
     stage('Docker Push') {
