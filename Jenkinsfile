@@ -26,8 +26,8 @@ pipeline {
            sh "docker push sagargupt03/railwaytt"
       
             }
-          //}
+          }
       }
     }
 }
-
+                        }
