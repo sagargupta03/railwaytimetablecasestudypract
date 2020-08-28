@@ -17,9 +17,11 @@ pipeline {
     stage('Docker Push') {
       steps {
            echo 'Pushing image to Docker Hub....demo'
-        withCredentials([usernamePassword(credentialsId: 'docker_hub_login_SG', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+//        withCredentials([usernamePassword(credentialsId: 'docker_hub_login_SG', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+       withCredentials([usernamePassword(credentialsId: 'docker_hub_login_SG', 'love8win' , sagargupta03)
+
         //  withCredentials([usernamePassword(credentialsId: 'docker_hub_login_SG')]) {
-           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+        //   sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
          // sh "docker push sagargupt03/railwaytt:${env.BUILD_NUMBER}"
            sh "docker push sagargupt03/railwaytt"
       
