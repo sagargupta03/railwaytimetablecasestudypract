@@ -23,8 +23,9 @@ pipeline
                 //when {
                 //branch 'master'
                   //   }
-                 echo 'Build Docker automation'
+                 
                 steps {
+                    echo 'Build Docker image'
                   script {
                     app = docker.build(DOCKER_IMAGE_NAME)
                     app.inside {
