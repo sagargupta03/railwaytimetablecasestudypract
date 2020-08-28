@@ -10,7 +10,8 @@ pipeline {
   stages {
     stage('Docker Build') {
       steps {
-        sh "docker build -t sagargupt03/railwaytt:${env.BUILD_NUMBER} ."
+        //sh "docker build -t sagargupt03/railwaytt:${env.BUILD_NUMBER} ."
+            sh "docker build -t sagargupt03/railwaytt"
       }
     }
     stage('Docker Push') {
@@ -19,7 +20,8 @@ pipeline {
         withCredentials([usernamePassword(credentialsId: 'docker_hub_login_SG', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
         //  withCredentials([usernamePassword(credentialsId: 'docker_hub_login_SG')]) {
            sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-          sh "docker push sagargupt03/railwaytt:${env.BUILD_NUMBER}"
+         // sh "docker push sagargupt03/railwaytt:${env.BUILD_NUMBER}"
+           sh "docker push sagargupt03/railwaytt"
       
             }
           }
