@@ -33,7 +33,7 @@ spec:
       containers:
       - name: railway-timetable
         
-        image:  sagargupta03/railwaytt:$BUILD_NUMBER
+        image:  sagargupta03/railwaytt:{{BUILD_NUMBER}}
         ports:
         - containerPort: 8080
         livenessProbe:
