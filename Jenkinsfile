@@ -30,7 +30,8 @@ pipeline {
           //sh 'kubectl apply -f service.yaml'
            kubernetesDeploy(
                     kubeconfigId: 'kubeconfig_cred_SG',
-                    configs: 'railwaytt-kube-canary.yml',
+                    //configs: 'railwaytt-kube-canary.yml',
+                    configs:  railwaytt-kube.yml
                     //configs: 'railwaytt-kube-SG.yml',
                     enableConfigSubstitution: true
                     
