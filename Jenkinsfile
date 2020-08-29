@@ -4,7 +4,8 @@ pipeline {
   stages {
     stage('Docker Build') {
       steps {
-        sh "docker build -t sagargupta03/railwaytt:${env.BUILD_NUMBER} ."
+       // sh "docker build -t sagargupta03/railwaytt:${env.BUILD_NUMBER} ."
+         sh "docker build -t sagargupta03/railwaytt ."
       }
     }
     stage('Docker Push') {
@@ -15,7 +16,8 @@ pipeline {
           sh "echo ${env.dockerHubUser}"
           sh "echo ${env.dockerHubPassword}"
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-       sh "docker push sagargupta03/railwaytt:${env.BUILD_NUMBER}"
+          //  sh "docker push sagargupta03/railwaytt:${env.BUILD_NUMBER}"
+            sh "docker push sagargupta03/railwaytt"
       
             }
           }
