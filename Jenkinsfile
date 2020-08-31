@@ -26,6 +26,7 @@ pipeline {
       steps {
            sh "echo ${env.KUBE_MASTER_IP}"
            sh "ping -c 2 ${env.KUBE_MASTER_IP}"
+           sh "ping -c 3 localhost"
         //ketan sir trial 
         //kubernetesDeploy
         //    (
