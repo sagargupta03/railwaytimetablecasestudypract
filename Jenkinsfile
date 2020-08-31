@@ -33,13 +33,19 @@ pipeline {
         //            enableConfigSubstitution: true
         //    )
         
-         withKubeConfig([credentialsId: 'kubeconfig_cred_sg_ubuntu']) 
-        {
+        ////ybmsdhu sir trial 
+       //  withKubeConfig([credentialsId: 'kubeconfig_cred_sg_ubuntu']) 
+       // {
         //  sh 'cat deployment.yaml | sed "s/{{BUILD_NUMBER}}/$BUILD_NUMBER/g" | kubectl apply -f -'
         //  sh 'kubectl apply -f service.yaml'
         //simpel deployment trial 
-            sh 'kubectl create -f railwaytt-simple.yaml'
-        }
+        //    sh 'kubectl create -f railwaytt-simple.yaml'
+       // }
+        
+        script {
+          kubernetesDeploy(configs: "railwaytt-simple.yaml", kubeconfigId: "kubeconfig_cred_sg_ubuntu")
+         }
+        
             }
           }
     
