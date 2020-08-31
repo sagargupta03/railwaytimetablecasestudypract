@@ -27,8 +27,8 @@ pipeline {
            sh "echo ${env.KUBE_MASTER_IP}"
             kubernetesDeploy
             (
-                    kubeconfigId: 'kubeconfig_cred_sg_ubuntu',
-                    configs: 'railwaytt-simple.yaml',
+                    kubeconfigId : 'kubeconfig_cred_sg_ubuntu',
+                    configs : 'railwaytt-simple.yaml',
                     enableConfigSubstitution: true
             )
         
