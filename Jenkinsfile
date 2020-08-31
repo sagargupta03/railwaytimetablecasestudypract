@@ -25,16 +25,21 @@ pipeline {
      stage('K8 initiate') {
       steps {
            sh "echo ${env.KUBE_MASTER_IP}"
-            kubernetesDeploy
-            (
-                    kubeconfigId : 'kubeconfig_cred_sg_ubuntu',
-                    configs : 'railwaytt-simple.yaml',
-                    enableConfigSubstitution: true
-            )
+        //ketan sir trial 
+        //kubernetesDeploy
+        //    (
+        //            kubeconfigId : 'kubeconfig_cred_sg_ubuntu',
+        //            configs : 'railwaytt-simple.yaml',
+        //            enableConfigSubstitution: true
+        //    )
         
-        
-        
-        
+         withKubeConfig([credentialsId: 'kubeconfig_cred_sg_ubuntu']) 
+        {
+        //  sh 'cat deployment.yaml | sed "s/{{BUILD_NUMBER}}/$BUILD_NUMBER/g" | kubectl apply -f -'
+        //  sh 'kubectl apply -f service.yaml'
+        //simpel deployment trial 
+            sh 'kubectl create -f railwaytt-simple.yaml'
+        }
             }
           }
     
