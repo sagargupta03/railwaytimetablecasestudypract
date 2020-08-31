@@ -43,7 +43,7 @@ pipeline {
        // }
         
         script {
-          kubernetesDeploy(configs: "railwaytt-simple.yaml", kubeconfigId: "kubeconfig_cred_sg_ubuntu")
+          kubernetesDeploy(configs: "railwaytt-simple.yaml", kubeconfigId: "kubeconfig_cred_sg_ubuntu" , enableConfigSubstitution: true)
          }
         
             }
