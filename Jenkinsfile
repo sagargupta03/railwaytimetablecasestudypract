@@ -25,7 +25,7 @@ pipeline {
      stage('K8 initiate') {
       steps {
            sh "echo ${env.KUBE_MASTER_IP}"
-           sh "ping ${env.KUBE_MASTER_IP}"
+           sh "ping -c 2 ${env.KUBE_MASTER_IP}"
         //ketan sir trial 
         //kubernetesDeploy
         //    (
