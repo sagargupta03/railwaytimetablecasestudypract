@@ -28,15 +28,15 @@ pipeline {
         //   withKubeConfig([credentialsId: 'kubeconfig_cred_SG']) {
         // sh 'cat sample.yml | sed "s/{{BUILD_NUMBER}}/$BUILD_NUMBER/g" | kubectl apply -f -'
           //sh 'kubectl apply -f service.yaml'
-           kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig_cred_SG',
+        //   kubernetesDeploy(
+          //          kubeconfigId: 'kubeconfig_cred_SG',
                     //configs: 'railwaytt-kube-canary.yml',
                    // configs:  'railwaytt-kube.yml',
-                    configs:  'sample.yml',
+            //        configs:  'sample.yml',
                     //configs: 'railwaytt-kube-SG.yml',
-                    enableConfigSubstitution: true
+              //      enableConfigSubstitution: true
                     
-                )
+               // )
        // }
             }
           }
