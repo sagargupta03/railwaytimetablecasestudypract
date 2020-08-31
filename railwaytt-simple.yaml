@@ -24,7 +24,7 @@ kind: Service
 metadata:
   name: railwaytt-k8s-service
 spec:
-  type: NodePort #Exposes the service as a node port -
+  type: NodePort #Exposes the service as a node port 
   ports:
   - port: 8080
     protocol: TCP
