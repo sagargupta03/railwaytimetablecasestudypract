@@ -27,6 +27,7 @@ pipeline {
            sh "echo ${env.KUBE_MASTER_IP}"
            sh "ping -c 2 ${env.KUBE_MASTER_IP}"
            sh "ping -c 3 localhost"
+           sh "cat /proc/sys/net/ipv4/ip_local_port_range" 
         //ketan sir trial 
         //kubernetesDeploy
         //    (
