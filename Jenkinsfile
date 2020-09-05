@@ -1,6 +1,10 @@
 //ybmadhu/Configuring-CI-CD-on-Kubernetes-with-Jenkins
 pipeline {
-  agent any
+  //agent any
+  agent
+  {
+   label 'master' 
+  } 
   stages {
     stage('Docker Build') {
       steps {
