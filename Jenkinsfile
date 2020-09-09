@@ -30,7 +30,7 @@ pipeline {
       steps {
            sh "echo ${env.KUBE_MASTER_IP}"
            sh "ping -c 2 ${env.KUBE_MASTER_IP}"
-           sh "ping -c 3 localhost"
+          // sh "ping -c 3 localhost"
            sh "cat /proc/sys/net/ipv4/ip_local_port_range" 
         //ketan sir trial 
         //kubernetesDeploy
@@ -49,11 +49,11 @@ pipeline {
         //    sh 'kubectl create -f railwaytt-simple.yaml'
        // }
         
-        script {
+//        script {
       //    kubernetesDeploy(configs: 'railwaytt-simple.yaml', kubeconfigId: 'kubeconfig_cred_sg_ubuntu' , enableConfigSubstitution: true)
        //   kubernetesDeploy(configs: 'railwaytt-simple.yaml', kubeconfigId: 'kubeconfig_cred_SG' , enableConfigSubstitution: true)
-          kubernetesDeploy(configs: 'railwaytt-service.yaml', kubeconfigId: 'kubeconfig_cred_SG' , enableConfigSubstitution: true)
-         }
+//          kubernetesDeploy(configs: 'railwaytt-service.yaml', kubeconfigId: 'kubeconfig_cred_SG' , enableConfigSubstitution: true)
+//         }
         
             }
           }
