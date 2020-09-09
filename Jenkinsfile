@@ -49,11 +49,11 @@ pipeline {
         //    sh 'kubectl create -f railwaytt-simple.yaml'
        // }
         
-//        script {
-      //    kubernetesDeploy(configs: 'railwaytt-simple.yaml', kubeconfigId: 'kubeconfig_cred_sg_ubuntu' , enableConfigSubstitution: true)
+        script {
+            kubernetesDeploy(configs: 'railwaytt-simple.yaml', kubeconfigId: 'kubeconfig_cred_sg_ubuntu' , enableConfigSubstitution: true)
        //   kubernetesDeploy(configs: 'railwaytt-simple.yaml', kubeconfigId: 'kubeconfig_cred_SG' , enableConfigSubstitution: true)
-//          kubernetesDeploy(configs: 'railwaytt-service.yaml', kubeconfigId: 'kubeconfig_cred_SG' , enableConfigSubstitution: true)
-//         }
+       //   kubernetesDeploy(configs: 'railwaytt-service.yaml', kubeconfigId: 'kubeconfig_cred_SG' , enableConfigSubstitution: true)
+         }
         
             }
           }
