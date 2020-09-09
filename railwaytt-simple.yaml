@@ -1,8 +1,9 @@
 ---
-#apiVersion: apps/v1
-apiVersion: extensions/v1
+apiVersion: apps/v1
+#apiVersion: extensions/v1
 #apiVersion: extensions/v1beta1 #as per https://plugins.jenkins.io/kubernetes-cd/   apiVersion: extensions/v1
 #apiVersion: apps/v1beta1 # done for K8S version > 1.16
+
 kind: Deployment
 metadata:
   name: railwaytt-k8s-deployment
